@@ -1,0 +1,32 @@
+<!--Variables: deck_display, form-->
+{% extends 'base.html' %}
+
+{% block title %}Hearthstone Deck Randomizer{% endblock %}
+
+{% block content %}
+
+<form method="POST" action="/randomizer">
+    <div class="form-group container">
+        {% include "_form.html" %}
+    </div>
+    <div class="container text-center p-3 mb-4">
+    <button type="submit" class="btn btn-success" id="button">
+        <span style="display: none" id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Create Deck
+    </button>
+    </div>
+</form>
+
+<div class="container">
+<h4>Your previously created decks:</h4>
+<ul>
+    {% for deck in deck_display %}
+    <li>
+        <a href="/decks/{{deck.id}}">{{deck.deck_name}} </a>
+        <a href="/decks/{{deck.id}}/delete"><i class="fas fa-trash-alt"></i></a>
+    </li>
+    {% endfor %}
+</ul>
+</div>
+
+{% endblock %}

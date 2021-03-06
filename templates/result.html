@@ -1,0 +1,34 @@
+<!-- variables: final_deck-->
+{% extends 'base.html' %}
+
+{% block title %}Hearthstone Deck Randomizer{% endblock %}
+
+{% block content %}
+
+<div class="container my-4">
+<div class="jumbotron">
+
+<h1 class="text-center container">{{deck_name}}</h1></div>
+    <!--insert card image below-->
+    <div class="wrapper container">
+    <div class="row">
+        {% for card in final_deck %}
+            <div class="col-lg-3 col-md-4 col-6">
+                <img class="img-fluid" src="{{ card.img }}">
+            </div>
+        {% endfor %}
+    </div>    
+    </div>
+
+<a href="/randomizer">
+    <div class="text-center p-3 mb-4">
+        <button type="button" class="btn btn-info" id="button">
+            <span style="display: none" id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Make a new deck!
+        </button>
+    </div>
+</a>
+
+</div>
+
+{% endblock %}
