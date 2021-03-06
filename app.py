@@ -3,6 +3,7 @@ import requests
 import random
 from models import Deck, DeckCards, Card, connect_db, db, get_or_create_card
 from forms import RandomizerForm
+import os
 
 app = Flask(__name__)
 
